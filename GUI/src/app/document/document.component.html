@@ -1,0 +1,25 @@
+<router-outlet></router-outlet>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отображение документов</title>
+</head>
+<body>
+<div class="documents-container">
+  <h2>Список документов</h2>
+  <ul class="document-list">
+    <li *ngFor="let document of documents" class="document-item">
+      <h3>UUID: {{document.uuid}}</h3>
+      <ul class="descriptor-list">
+        <li *ngFor="let descriptor of document.descriptors">{{descriptor.descriptorName}}</li>
+      </ul>
+      <hr>
+    </li>
+  </ul>
+</div>
+<button class="button" routerLink="/descriptors">Descriptors</button>
+
+</body>
+</html>

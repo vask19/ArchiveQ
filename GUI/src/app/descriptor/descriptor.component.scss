@@ -1,0 +1,63 @@
+.descriptors-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.descriptors-container h2 {
+  color: #333;
+  text-align: center;
+}
+
+.descriptor-item {
+  background-color: #f9f9f9; /* Фон дескриптора */
+  border: 1px solid #ccc; /* Рамка дескриптора */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.descriptor-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.descriptor-list li {
+  margin-bottom: 10px;
+}
+
+.descriptor-list li span {
+  font-weight: bold;
+  color: #555;
+}
+
+.descriptor-list li:last-child {
+  margin-bottom: 0;
+}
+
+.add-descriptor-form {
+  margin-top: 20px;
+}
+
+.add-descriptor-form input[type="text"] {
+  width: calc(50% - 10px);
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.add-descriptor-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.add-descriptor-form button:hover {
+  background-color: #0056b3;
+}
