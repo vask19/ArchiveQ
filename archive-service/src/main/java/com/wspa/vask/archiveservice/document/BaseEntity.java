@@ -4,5 +4,4 @@ public interface BaseEntity {
 
     String generateUUID();
 
-
 }
