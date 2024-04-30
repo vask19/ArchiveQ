@@ -3,7 +3,7 @@ package com.pl.vkorol.gatway.fasada;
 import com.pl.vkorol.gatway.entity.Endpoint;
 import com.pl.vkorol.gatway.filter.RouteValidator;
 import lombok.RequiredArgsConstructor;
-import org.coffeecode.entity.Response;
+import com.pl.endpoint.entity.Response;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

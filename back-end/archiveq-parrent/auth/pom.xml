@@ -6,7 +6,6 @@
         <groupId>com.pl.vkorol</groupId>
         <artifactId>archiveq-parrent</artifactId>
         <version>0.0.1</version>
-        <relativePath/>
     </parent>
     <artifactId>auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>

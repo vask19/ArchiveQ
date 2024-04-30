@@ -1,4 +1,4 @@
-package org.coffeecode.entity;
+package com.pl.endpoint.entity;
 
 public class Endpoint {
     private final String url;

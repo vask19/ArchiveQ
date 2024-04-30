@@ -1,7 +1,5 @@
 package com.pl.vkorol.auth.services;
 
-
-import com.example.auth.entity.*;
 import com.pl.vkorol.auth.exceptions.UserDontExistException;
 import com.pl.vkorol.auth.exceptions.UserExistingWithMail;
 import com.pl.vkorol.auth.exceptions.UserExistingWithName;

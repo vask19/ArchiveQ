@@ -6,9 +6,9 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.1</version>
-        <relativePath/>
+        <version>3.2.4</version>
     </parent>
+
     <groupId>com.pl.vkorol</groupId>
     <artifactId>archiveq-parrent</artifactId>
     <version>0.0.1</version>

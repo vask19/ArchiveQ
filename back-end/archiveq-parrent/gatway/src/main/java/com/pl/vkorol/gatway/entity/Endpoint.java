@@ -1,7 +1,7 @@
 package com.pl.vkorol.gatway.entity;
 
-import org.coffeecode.entity.HttpMethod;
-import org.coffeecode.entity.Role;
+import com.pl.endpoint.entity.HttpMethod;
+import com.pl.endpoint.entity.Role;
 
 import java.util.Objects;
 

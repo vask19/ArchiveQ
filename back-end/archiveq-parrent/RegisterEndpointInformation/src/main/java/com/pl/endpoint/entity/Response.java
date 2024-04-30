@@ -1,4 +1,4 @@
-package org.coffeecode.entity;
+package com.pl.endpoint.entity;
 
 
 import java.sql.Timestamp;

@@ -2,8 +2,8 @@ package com.pl.vkorol.gatway.filter;
 
 
 import com.pl.vkorol.gatway.entity.Endpoint;
-import org.coffeecode.entity.HttpMethod;
-import org.coffeecode.entity.Role;
+import com.pl.endpoint.entity.HttpMethod;
+import com.pl.endpoint.entity.Role;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 
