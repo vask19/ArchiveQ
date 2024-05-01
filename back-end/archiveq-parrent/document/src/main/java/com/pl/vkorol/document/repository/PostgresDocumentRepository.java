@@ -1,7 +1,7 @@
 package com.pl.vkorol.document.repository;
 
-import com.pl.vkorol.document.model.DescriptorImpl;
-import com.pl.vkorol.document.model.DocumentImpl;
+import com.pl.vkorol.document.model.Descriptor;
+import com.pl.vkorol.document.model.Document;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.List;
 public class PostgresDocumentRepository implements DocumentRepository {
 
     @Override
-    public void addDocument(List<DescriptorImpl> descriptors) {
+    public void addDocument(List<Descriptor> descriptors) {
     }
 
     @Override
-    public DocumentImpl getDocument(String documentId) {
+    public Document getDocument(String documentId) {
         return null;
 
     }

@@ -1,10 +1,11 @@
 package com.pl.vkorol.document.service;
 
+import com.pl.vkorol.document.model.ArchiveDescriptor;
+import com.pl.vkorol.document.model.Descriptor;
 import com.pl.vkorol.document.model.Document;
-import com.pl.vkorol.document.model.DocumentImpl;
 import com.pl.vkorol.document.model.response.DescriptorDto;
-import com.pl.vkorol.document.repository.DescriptorRepository;
 import com.pl.vkorol.document.repository.DocumentRepository;
+import com.pl.vkorol.document.repository.PostgresDescriptorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Autowired
     private DocumentRepository documentRepository;
     @Autowired
-    private DescriptorRepository descriptorRepository;
+    private PostgresDescriptorRepository descriptorRepository;
 
     @Override
     public void addDocument(String documentMessage) {
@@ -25,9 +26,6 @@ public class DocumentServiceImpl implements DocumentService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void addNewDescriptor(String descriptorDto) {
     }
 
     public List<DescriptorDto> getDescriptors() {
@@ -41,4 +39,5 @@ public class DocumentServiceImpl implements DocumentService {
     public Document getDocument(String documentId) {
         return null;
     }
+
 }

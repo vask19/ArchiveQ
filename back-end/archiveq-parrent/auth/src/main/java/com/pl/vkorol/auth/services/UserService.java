@@ -238,10 +238,10 @@ public class UserService {
         }
         if (token != null && !token.isEmpty()){
             String subject = jwtService.getSubject(token);
-            userRepository.findUserByLoginAndLockAndEnabledAndIsAdmin(subject).orElseThrow(()->new UserDontExistException("User not found"));
+            userRepository.findUserByLoginAndLockAndEnabledAndIsUser(subject).orElseThrow(()->new UserDontExistException("User not found"));
         } else if (refresh != null && !refresh.isEmpty()) {
             String subject = jwtService.getSubject(refresh);
-            userRepository.findUserByLoginAndLockAndEnabledAndIsAdmin(subject).orElseThrow(()->new UserDontExistException("User not found"));
+            userRepository.findUserByLoginAndLockAndEnabledAndIsUser(subject).orElseThrow(()->new UserDontExistException("User not found"));
         }
     }
 

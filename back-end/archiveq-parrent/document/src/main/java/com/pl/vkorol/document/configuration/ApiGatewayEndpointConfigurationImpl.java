@@ -3,8 +3,8 @@ package com.pl.vkorol.document.configuration;
 import com.pl.endpoint.ApiGatewayEndpointConfiguration;
 import com.pl.endpoint.entity.Endpoint;
 import com.pl.endpoint.entity.HttpMethod;
+import com.pl.endpoint.entity.Response;
 import com.pl.endpoint.entity.Role;
-import com.pl.vkorol.document.model.entity.Response;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +29,10 @@ public class ApiGatewayEndpointConfigurationImpl implements ApiGatewayEndpointCo
         endpointList.add(new Endpoint("/api/v1/product/getExternal", HttpMethod.GET, Role.GUEST));
         endpointList.add(new Endpoint("/api/v1/product", HttpMethod.POST, Role.ADMIN));
         endpointList.add(new Endpoint("/api/v1/product", HttpMethod.DELETE, Role.ADMIN));
-        endpointList.add(new Endpoint("/api/v1/category", HttpMethod.GET, Role.GUEST));
-        endpointList.add(new Endpoint("/api/v1/category", HttpMethod.POST, Role.ADMIN));
+        endpointList.add(new Endpoint("/api/v1/archive", HttpMethod.GET, Role.GUEST));
+        endpointList.add(new Endpoint("/api/v1/archive", HttpMethod.POST, Role.USER));
+        endpointList.add(new Endpoint("/api/v1/descriptor/archive", HttpMethod.POST, Role.USER));
+        endpointList.add(new Endpoint("/api/v1/descriptor/archive", HttpMethod.GET, Role.USER));
     }
 
     @Override

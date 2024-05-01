@@ -1,17 +1,15 @@
 package com.pl.vkorol.document.repository;
 
-
-
-import com.pl.vkorol.document.model.DescriptorImpl;
+import com.pl.vkorol.document.model.Descriptor;
 
 import java.util.List;
 
 public interface DescriptorRepository {
 
-    public DescriptorImpl getDescriptorById(String uuid);
+    public Descriptor getDescriptorById(String uuid);
 
-    public DescriptorImpl createDescriptor(DescriptorImpl descriptor);
+    public Descriptor createDescriptor(Descriptor descriptor);
 
-    public List<DescriptorImpl> getDescriptors();
+    public List<Descriptor> getDescriptors();
 
 }
