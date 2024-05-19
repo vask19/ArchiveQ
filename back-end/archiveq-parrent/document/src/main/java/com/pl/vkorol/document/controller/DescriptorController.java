@@ -2,16 +2,14 @@ package com.pl.vkorol.document.controller;
 
 import com.pl.endpoint.entity.Response;
 import com.pl.vkorol.document.mapper.ArchiveDescriptorMapper;
-import com.pl.vkorol.document.mapper.DescriptorMapper;
-import com.pl.vkorol.document.model.ArchiveDescriptor;
-import com.pl.vkorol.document.model.request.ArchiveDescriptorDto;
+import com.pl.vkorol.document.model.entity.ArchiveDescriptor;
+import com.pl.vkorol.document.model.payload.request.ArchiveDescriptorDto;
 import com.pl.vkorol.document.service.DescriptorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/descriptor/archive")
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class DescriptorController {
 
     private final DescriptorService descriptorService;
-    private final DescriptorMapper descriptorMapper;
     private final ArchiveDescriptorMapper archiveDescriptorMapper;
 
     @PostMapping
@@ -31,5 +28,15 @@ public class DescriptorController {
             return ResponseEntity.status(400).body(new Response("Object already exist"));
         }
         return ResponseEntity.ok(new Response("Operation end Success"));
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ArchiveDescriptorDto>> getDescriptors() {
+        descriptorService.getAllArchiveDescriptors();
+        List<ArchiveDescriptorDto> dtos = descriptorService.getAllArchiveDescriptors()
+                .stream()
+                .map(archiveDescriptorMapper::archiveDescriptorToArchiveDescriptorDto).toList();
+        return ResponseEntity.ok(dtos);
+
     }
 }

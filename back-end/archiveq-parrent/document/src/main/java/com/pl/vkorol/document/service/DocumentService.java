@@ -1,15 +1,15 @@
 package com.pl.vkorol.document.service;
 
+import com.pl.vkorol.document.model.entity.ArchiveDocument;
+import com.pl.vkorol.document.model.entity.DocumentInstance;
 
-import com.pl.vkorol.document.model.ArchiveDescriptor;
-import com.pl.vkorol.document.model.Descriptor;
-import com.pl.vkorol.document.model.Document;
+import java.util.List;
 
 public interface DocumentService {
 
-    void addDocument(String documentMessage);
-    Document getDocument(String documentId);
-
-
-
+    void createArchiveDocument(ArchiveDocument archiveDocument);
+    List<ArchiveDocument> getAllDocuments();
+    List<ArchiveDocument> getAllDocuments(int page, int pageSize);
+    ArchiveDocument getDocumentByName(String name);
+    void createDocument(DocumentInstance documentInstance);
 }

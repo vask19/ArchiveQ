@@ -1,4 +1,4 @@
-package com.pl.vkorol.document.model.response;
+package com.pl.vkorol.document.model.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

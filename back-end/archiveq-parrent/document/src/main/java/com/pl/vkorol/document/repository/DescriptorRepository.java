@@ -1,6 +1,6 @@
 package com.pl.vkorol.document.repository;
 
-import com.pl.vkorol.document.model.Descriptor;
+import com.pl.vkorol.document.model.entity.Descriptor;
 
 import java.util.List;
 

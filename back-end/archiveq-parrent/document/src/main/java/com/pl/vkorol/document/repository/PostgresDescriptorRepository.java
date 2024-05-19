@@ -1,6 +1,6 @@
 package com.pl.vkorol.document.repository;
 
-import com.pl.vkorol.document.model.Descriptor;
+import com.pl.vkorol.document.model.entity.Descriptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,9 +17,6 @@ public class PostgresDescriptorRepository implements DescriptorRepository {
         return descriptorBaseRepository.getReferenceById(uuid);
     }
 
-    public Optional<Descriptor> getDescriptorByName(String name) {
-        return descriptorBaseRepository.findByName(name);
-    }
 
     public Descriptor createDescriptor(Descriptor descriptor) {
         return descriptorBaseRepository.save(descriptor);
