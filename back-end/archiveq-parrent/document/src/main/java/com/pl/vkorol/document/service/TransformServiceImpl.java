@@ -18,7 +18,7 @@ public class TransformServiceImpl implements TransformService {
     public DocumentInstance toDocumentInstance(DocumentDto documentDto) {
         ArchiveDocument archiveDocument = documentService.getDocumentByName(documentDto.getDocumentName());
         DocumentInstance documentInstance = new DocumentInstance();
-        List<Descriptor> descriptorList = documentDto.getDescriptorDtoList()
+        List<Descriptor> descriptorList = documentDto.getDescriptors()
                 .stream()
                 .map(descriptorDto -> {
                     ArchiveDescriptor archiveDescriptor = descriptorService.getDescriptorByName(descriptorDto.name());

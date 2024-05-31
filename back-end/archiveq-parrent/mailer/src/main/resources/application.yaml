@@ -1,0 +1,21 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ysellby@gmail.com
+    password: ybrieqemhkqpjqxv
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    sender:
+      email: no-reply@gmail.com
+      text: no-reply
+
+server:
+  port: 8005
+
+

@@ -37,6 +37,7 @@ public class ApiGatewayEndpointConfigurationImpl implements ApiGatewayEndpointCo
         endpointList.add(new Endpoint("/api/v1/document/archive/all", HttpMethod.GET, Role.USER));
         endpointList.add(new Endpoint("/api/v1/document/archive", HttpMethod.POST, Role.USER));
         endpointList.add(new Endpoint("/api/v1/document/create", HttpMethod.POST, Role.USER));
+        endpointList.add(new Endpoint("/api/v1/document/search", HttpMethod.GET, Role.USER));
     }
 
     @Override

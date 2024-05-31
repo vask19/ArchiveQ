@@ -13,5 +13,5 @@ public class DocumentDto {
     @JsonProperty("documentId")
     private String documentName;
     @JsonProperty("descriptors")
-    private List<DescriptorDto> descriptorDtoList;
+    private List<DescriptorDto> descriptors;
 }
