@@ -11,8 +11,6 @@ public class MessageProducer {
     private KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 
     public void sendMessage(String topic, KafkaMessage emailReceiver) {
-
         kafkaTemplate.send(topic, emailReceiver);
     }
-
 }

@@ -13,9 +13,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResetOperations {
+
     @Id
     @GeneratedValue(generator = "resetoperations_id_seq", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "resetoperations_id_seq",sequenceName = "resetoperations_id_seq",allocationSize = 1)
+    @SequenceGenerator(name = "resetoperations_id_seq", sequenceName = "resetoperations_id_seq", allocationSize = 1)
     private long id;
     @ManyToOne
     @JoinColumn(name = "users")

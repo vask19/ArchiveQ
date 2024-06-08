@@ -14,11 +14,12 @@ public class CustomUserDetails implements UserDetails {
     private String password;
     private Role role;
 
-    public CustomUserDetails(User user){
+    public CustomUserDetails(User user) {
         this.username = user.getUsername();
         this.password = user.getPassword();
         this.role = user.getRole();
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -31,7 +32,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-       return username;
+        return username;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.pl.vkorol.auth.entity;
 
 public enum Code {
+
     SUCCESS("Operacja zakończona sukcesem"),
     PERMIT("Przyznano dostep"),
     A1("Podany uzytkownik o danej nazwie nie istnieje lub nie aktywował konta"),
@@ -11,7 +12,8 @@ public enum Code {
     A6("Użytkownik nie istnieje");
 
     public final String label;
-    private Code(String label){
+
+    private Code(String label) {
         this.label = label;
     }
 }

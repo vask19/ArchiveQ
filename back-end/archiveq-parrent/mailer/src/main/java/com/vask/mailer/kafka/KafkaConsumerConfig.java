@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfig {
+
     @Value("${spring.kafka.bootstrap-servers}")
     private String brokers;
 
@@ -24,7 +25,6 @@ public class KafkaConsumerConfig {
         configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "my-group-id");
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-//        (ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class)
         return new DefaultKafkaConsumerFactory<>(configProps);
     }
 

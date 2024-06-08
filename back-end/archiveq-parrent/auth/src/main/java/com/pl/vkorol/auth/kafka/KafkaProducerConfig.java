@@ -11,11 +11,13 @@ import org.springframework.kafka.core.ProducerFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+
 @Configuration
 public class KafkaProducerConfig {
 
     @Value("${spring.kafka.bootstrap-servers}")
     private String brokers;
+
     @Bean
     public ProducerFactory<String, KafkaMessage> producerFactory() {
         Map<String, Object> configProps = new HashMap<>();
@@ -24,8 +26,9 @@ public class KafkaProducerConfig {
         configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaMessageSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
     }
+
     @Bean
     public KafkaTemplate<String, KafkaMessage> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
- }
+    }
 }

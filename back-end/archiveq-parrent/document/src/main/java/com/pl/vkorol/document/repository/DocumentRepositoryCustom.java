@@ -7,8 +7,8 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 
 @Transactional
-public
-interface DocumentRepositoryCustom {
+public interface DocumentRepositoryCustom {
 
     List<DocumentInstance> findByDescriptorsAndArchiveDocumentName(SearchDocumentInstanceQuery query);
+
 }

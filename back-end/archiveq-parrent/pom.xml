@@ -26,6 +26,7 @@
         <module>RegisterEndpointInformation</module>
         <module>document</module>
         <module>mailer</module>
+        <module>file-service</module>
     </modules>
 
     <dependencies>

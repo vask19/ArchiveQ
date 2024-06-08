@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -81,5 +82,10 @@ public class DocumentServiceImpl implements DocumentService {
         List<DocumentInstance> documentInstances = documentRepository.findByDescriptorsAndArchiveDocumentName(query);
         log.info("Documents found: {}", documentInstances.size());
         return documentInstances;
+    }
+
+    @Override
+    public Optional<DocumentInstance> getDocumentById(String documentUuid) {
+        return documentRepository.findById(documentUuid);
     }
 }

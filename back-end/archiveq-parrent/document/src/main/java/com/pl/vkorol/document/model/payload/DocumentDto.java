@@ -9,8 +9,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class DocumentDto {
-
-    @JsonProperty("documentId")
+    @JsonProperty("documentUuid")
+    private String documentUuid;
+    @JsonProperty("documentName")
     private String documentName;
     @JsonProperty("descriptors")
     private List<DescriptorDto> descriptors;

@@ -25,7 +25,7 @@ public class DocumentInstanceMapper {
                 descriptors);
     }
 
-    public List<DocumentInstanceDto> documentInstanceListDoDocumentInstanceDtoList(List<DocumentInstance> documentInstances) {
+    public List<DocumentInstanceDto> documentInstanceListToDocumentInstanceDtoList(List<DocumentInstance> documentInstances) {
         return documentInstances.stream()
                 .map(this::documentInstanceToDocumentInstanceDto).toList();
     }

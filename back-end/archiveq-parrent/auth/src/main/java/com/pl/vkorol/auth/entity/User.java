@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -13,9 +14,10 @@ import java.util.UUID;
 @Table(name = "users")
 @Entity
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(generator = "users_id_seq", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "users_id_seq",sequenceName = "users_id_seq",allocationSize = 1)
+    @SequenceGenerator(name = "users_id_seq", sequenceName = "users_id_seq", allocationSize = 1)
     private long id;
     private String uuid;
     private String login;
@@ -29,9 +31,10 @@ public class User implements UserDetails {
     @Column(name = "isenabled")
     private boolean isEnabled;
 
-    public User(){
+    public User() {
         generateUuid();
     }
+
     public User(long id, String uuid, String login, String email, String password, Role role, boolean isLock, boolean isEnabled) {
         this.id = id;
         this.uuid = uuid;
@@ -43,18 +46,23 @@ public class User implements UserDetails {
         this.isEnabled = isEnabled;
         generateUuid();
     }
-    public Role getRole(){
+
+    public Role getRole() {
         return this.role;
     }
-    public String getUuid(){
+
+    public String getUuid() {
         return this.uuid;
     }
-    private long getId(){
+
+    private long getId() {
         return id;
     }
+
     public String getEmail() {
         return email;
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name()));
@@ -89,8 +97,9 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return isEnabled;
     }
-    private void generateUuid(){
-        if (uuid == null || uuid.equals("")){
+
+    private void generateUuid() {
+        if (uuid == null || uuid.equals("")) {
             setUuid(UUID.randomUUID().toString());
         }
     }

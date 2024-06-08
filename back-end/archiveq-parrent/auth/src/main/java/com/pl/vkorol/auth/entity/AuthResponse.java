@@ -3,6 +3,7 @@ package com.pl.vkorol.auth.entity;
 import lombok.Getter;
 
 import java.sql.Timestamp;
+
 @Getter
 public class AuthResponse {
     private final String timestamp;

@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 @Builder
 @Data
@@ -14,10 +15,10 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class KafkaMessage {
 
-    @JsonProperty("email")
-    private String email;
-    @JsonProperty("subject")
-    private String subject;
-    @JsonProperty("text")
-    private String text;
+    @JsonProperty("documentUuid")
+    private String documentUuid;
+    @JsonProperty("fileName")
+    private String fileName;
+    @JsonProperty("content")
+    private byte[] content;
 }

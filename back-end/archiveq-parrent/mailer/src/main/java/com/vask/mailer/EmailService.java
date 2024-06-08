@@ -8,12 +8,8 @@ import jakarta.mail.internet.MimeBodyPart;
 import jakarta.mail.internet.MimeMessage;
 import jakarta.mail.internet.MimeMultipart;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.Properties;
@@ -31,7 +27,7 @@ public class EmailService {
     private Session session;
     private Properties properties;
 
-   @PostConstruct
+    @PostConstruct
     private void config() {
         String smtpHost = "smtp.gmail.com";
         int smtpPort = 587;
@@ -72,5 +68,4 @@ public class EmailService {
     private void refreshSession() {
         session = Session.getInstance(properties, auth);
     }
-
 }

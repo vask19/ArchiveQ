@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class EmailReceiver {
 
     @JsonProperty("email")
-    private String  email;
+    private String email;
     @JsonProperty("subject")
     private String subject;
     @JsonProperty("text")

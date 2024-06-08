@@ -10,9 +10,9 @@ public class MessageProducer {
     @Autowired
     private KafkaTemplate<String, KafkaMessage> kafkaTemplate;
 
-    public void sendMessage(String topic, KafkaMessage emailReceiver) {
+    public void sendMessage(String topic, KafkaMessage fileMessage) {
 
-        kafkaTemplate.send(topic, emailReceiver);
+        kafkaTemplate.send(topic, fileMessage);
     }
 
 }
