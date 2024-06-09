@@ -72,10 +72,10 @@ services:
       - "8001:21"
       - "21100-21110:21100-21110"
     environment:
-      - USERS=sklep|12345678
+      - USERS=archiveq|qQpO12345678
       - ADDRESS=127.0.0.1
       - MIN_PORT=21100
       - MAX_PORT=21110
       - UMASK=022
     volumes:
-      - ./ftpdata:/home/ftpuser
+      - ./ftpdata:/home
