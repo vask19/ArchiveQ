@@ -28,12 +28,9 @@ public class AuthController {
     @RequestMapping(path = "/register", method = RequestMethod.POST)
     public ResponseEntity<AuthResponse> addNewUser(@Valid @RequestBody UserRegisterDTO user) {
         try {
-            log.info("--START REGISTER USER");
             userService.register(user);
-            log.info("--STOP REGISTER USER");
             return ResponseEntity.ok(new AuthResponse(Code.SUCCESS));
         } catch (UserExistingWithName e) {
-            log.info("User dont exist in database");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new AuthResponse(Code.A4));
         } catch (UserExistingWithMail existing) {
             log.info("User dont exist in database with this mail");
@@ -43,7 +40,6 @@ public class AuthController {
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public ResponseEntity<?> login(@RequestBody User user, HttpServletResponse response) {
-        log.info("--TRY LOGIN USER");
         return userService.login(response, user);
     }
 

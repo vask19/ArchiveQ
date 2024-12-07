@@ -34,7 +34,7 @@ public class DocumentController {
             DocumentInstance documentInstance = transformService.toDocumentInstance(documentDto);
             documentService.createDocument(documentInstance);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Archive document already exists");
+            return ResponseEntity.badRequest().body("Error while creating document");
         }
         return ResponseEntity.ok("Successfully created new archive document");
     }

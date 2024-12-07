@@ -14,12 +14,11 @@ import java.util.List;
 public class DescriptorService {
 
     private final ArchiveDescriptorRepository archiveDescriptorRepository;
-    private final PostgresDescriptorRepository descriptorRepository;
 
     public void createArchiveDescriptor(ArchiveDescriptor archiveDescriptor) {
         archiveDescriptorRepository.findByName(archiveDescriptor.getName())
                 .ifPresent(desc -> {
-                    throw new RuntimeException("Already exts");
+                    throw new RuntimeException("Descriptor already exists");
                 });
         archiveDescriptorRepository.save(archiveDescriptor);
     }

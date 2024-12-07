@@ -10,7 +10,7 @@ import java.util.UUID;
 @Table()
 @Data
 @NoArgsConstructor
-public class ArchiveDescriptor implements BaseEntity{
+public class ArchiveDescriptor implements BaseEntity {
 
     @Id
     @Column(name = "archive_descriptor_uuid")

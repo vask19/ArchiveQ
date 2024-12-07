@@ -1,7 +1,5 @@
 package com.pl.vkorol.document.mapper;
 
-import com.pl.vkorol.document.model.entity.ArchiveDescriptor;
-import com.pl.vkorol.document.model.entity.Descriptor;
 import com.pl.vkorol.document.model.entity.DocumentInstance;
 import com.pl.vkorol.document.model.payload.DescriptorDto;
 import com.pl.vkorol.document.model.payload.response.DocumentInstanceDto;

@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -29,7 +28,6 @@ public class DocumentServiceImpl implements DocumentService {
     private final ArchiveDescriptorRepository archiveDescriptorRepository;
     private final DescriptorRepository descriptorRepository;
     private final CustomDocumentRepository documentRepository;
-
 
     @Override
     public void createArchiveDocument(ArchiveDocument archiveDocument) {
