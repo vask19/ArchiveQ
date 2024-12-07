@@ -1,5 +1,53 @@
-version: '2'
+version: "3.8"
+
 services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.3.3
+    container_name: elasticsearch_springboot
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "discovery.type=single-node"
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - elastic
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.3.3
+    container_name: kibana_springboot
+    ports:
+      - "5601:5601"
+    environment:
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+      ELASTICSEARCH_HOSTS: '["http://elasticsearch:9200"]'
+    depends_on:
+      - elasticsearch
+    networks:
+      - elastic
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.3.3
+    container_name: logstash_springboot
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - "5044:5044"
+      - "5085:5000/tcp"
+      - "5000:5000/udp"
+      - "9600:9600"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     environment:
@@ -7,6 +55,8 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
     ports:
       - 22181:2181
+    networks:
+      - elastic
 
   kafka1:
     image: confluentinc/cp-kafka:latest
@@ -26,6 +76,8 @@ services:
       KAFKA_MAX_MESSAGE_BYTES: 5242880
       KAFKA_REPLICA_FETCH_MAX_BYTES: 5242880
       KAFKA_FETCH_MESSAGE_MAX_BYTES: 5242880
+    networks:
+      - elastic
 
   kafka2:
     image: confluentinc/cp-kafka:latest
@@ -45,6 +97,8 @@ services:
       KAFKA_MAX_MESSAGE_BYTES: 5242880
       KAFKA_REPLICA_FETCH_MAX_BYTES: 5242880
       KAFKA_FETCH_MESSAGE_MAX_BYTES: 5242880
+    networks:
+      - elastic
 
   kafka3:
     image: confluentinc/cp-kafka:latest
@@ -64,63 +118,13 @@ services:
       KAFKA_MAX_MESSAGE_BYTES: 5242880
       KAFKA_REPLICA_FETCH_MAX_BYTES: 5242880
       KAFKA_FETCH_MESSAGE_MAX_BYTES: 5242880
+    networks:
+      - elastic
 
-  ftp:
-    image: delfer/alpine-ftp-server
-    container_name: ftpserver
-    ports:
-      - "8001:21"
-      - "21100-21110:21100-21110"
-    environment:
-      - USERS=archiveq|qQpO12345678
-      - ADDRESS=127.0.0.1
-      - MIN_PORT=21100
-      - MAX_PORT=21110
-      - UMASK=022
-    volumes:
-      - ./ftpdata:/home
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
-    container_name: elasticsearch
-    environment:
-      - discovery.type=single-node
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - "ELASTIC_PASSWORD=JPtyb-_bQBYtEqQ8*4Zl"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - ./es_data:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
-      - 9300:9300
-    #JPtyb-_bQBYtEqQ8*4Zl
-  logstash:
-    image: docker.elastic.co/logstash/logstash:8.10.2
-    container_name: logstash
-    depends_on:
-      - elasticsearch
-    volumes:
-      - "/Volumes/TOSHIBA EXT/ArchiveQ/back-end/archiveq-parrent/docker/logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro"
-    ports:
-      - 5044:5044
-      - 5050:5000
-    environment:
-      LS_JAVA_OPTS: "-Xms256m -Xmx256m"
-  kibana:
-    image: docker.elastic.co/kibana/kibana:8.10.2
-    container_name: kibana
-    depends_on:
-      - elasticsearch
-    environment:
-      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
-      - ELASTICSEARCH_USERNAME=elastic
-      - ELASTICSEARCH_PASSWORD=JPtyb-_bQBYtEqQ8*4Zl
-    ports:
-      - 5601:5601
+volumes:
+  elasticsearch_data:
+    driver: local
 
-
-
-
+networks:
+  elastic:
+    driver: bridge
