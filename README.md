@@ -66,7 +66,7 @@ The system is built with a microservice architecture, ensuring modularity and sc
 ## Screenshots
 
 ### 1. Login Page
-![Login Page](screenshots/login.png)
+![Login Page](version-1.0.drawio.png)
 
 ### 2. Document List
 ![Document List](screenshots/document_list.png)
