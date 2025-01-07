@@ -53,12 +53,6 @@ The system is built with a microservice architecture, ensuring modularity and sc
    ```bash
    cd document-archiving-system
    ```
-
-3. Start the services using Docker Compose:
-   ```bash
-   docker-compose up
-   ```
-
 4. Access the application:
    - Frontend: [http://localhost:4200](http://localhost:4200)
    - Backend API: [http://localhost:8080/api](http://localhost:8080/api)
@@ -71,20 +65,20 @@ The system is built with a microservice architecture, ensuring modularity and sc
 ### 2. Login Page
 ![Login Page](screenshots/login.png)
 
-### 3. Create Documentы
+### 3. Metadata View
+![Create Descriptor 1](screenshots/descriptor.png)
+![Create Descriptor 2](screenshots/descriptor2.png)
+
+### 4. Create Document
 ![Create Document 1](screenshots/create.png)
 ![Create Document 2](screenshots/create2.png)
 ![Create Document 3](screenshots/create3.png)
-
-### 4. Update Document
-![Update Document 1](screenshots/update1.png)
-![Update Document 2](screenshots/update2.png)
 
 ### 5. Search Document
 ![Search Document 1](screenshots/search.png)
 ![Search Document 2](screenshots/search1.png)
 ![Search Document 3](screenshots/search3.png)
 
-### 6. Metadata View
-![Create Descriptor 1](screenshots/descriptor.png)
-![Create Descriptor 2](screenshots/descriptor2.png)
+### 6. Update Document
+![Update Document 1](screenshots/update1.png)
+![Update Document 2](screenshots/update2.png)
