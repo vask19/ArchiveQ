@@ -46,7 +46,7 @@ The system is built with a microservice architecture, ensuring modularity and sc
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repository/document-archiving-system.git
+   git clone https://github.com/vask19/ArchiveQ.git
    ```
 
 2. Navigate to the project directory:
