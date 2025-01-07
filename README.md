@@ -49,14 +49,6 @@ The system is built with a microservice architecture, ensuring modularity and sc
    git clone https://github.com/vask19/ArchiveQ.git
    ```
 
-2. Navigate to the project directory:
-   ```bash
-   cd document-archiving-system
-   ```
-4. Access the application:
-   - Frontend: [http://localhost:4200](http://localhost:4200)
-   - Backend API: [http://localhost:8080/api](http://localhost:8080/api)
-
 ## Screenshots
 
 ### 1. Project Architecture
