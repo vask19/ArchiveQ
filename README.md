@@ -65,12 +65,26 @@ The system is built with a microservice architecture, ensuring modularity and sc
 
 ## Screenshots
 
-### 1. Login Page
-![Login Page](version-1.0.drawio.png)
+### 1. Project Architecture
+![Project Architecture](screenshots/project.png)
 
-### 2. Document List
-![Document List](screenshots/document_list.png)
+### 2. Login Page
+![Login Page](screenshots/login.png)
 
-### 3. Document Metadata
-![Document Metadata](screenshots/metadata.png)
+### 3. Create Documentы
+![Create Document 1](screenshots/create.png)
+![Create Document 2](screenshots/create2.png)
+![Create Document 3](screenshots/create3.png)
 
+### 4. Update Document
+![Update Document 1](screenshots/update1.png)
+![Update Document 2](screenshots/update2.png)
+
+### 5. Search Document
+![Search Document 1](screenshots/search.png)
+![Search Document 2](screenshots/search1.png)
+![Search Document 3](screenshots/search3.png)
+
+### 6. Metadata View
+![Create Descriptor 1](screenshots/descriptor.png)
+![Create Descriptor 2](screenshots/descriptor2.png)
