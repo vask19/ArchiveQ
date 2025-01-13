@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: search
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        boot: DEBUG
