@@ -1,9 +1,8 @@
 package com.pl.vkorol.search.controller
 
-import com.pl.vkorol.search.model.Document
+import com.pl.vkorol.search.model.item.Document
 import com.pl.vkorol.search.service.DocumentService
 import io.swagger.v3.oas.annotations.Operation
-import io.swagger.v3.oas.annotations.Parameter
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -37,5 +36,14 @@ class DocumentController(private val documentService: DocumentService) {
     @Operation(summary = "Get all documents", description = "Retrieve a list of all documents")
     fun findAllDocuments(): Flux<Document> {
         return documentService.findAllDocuments()
+    }
+
+    @GetMapping("/search")
+    @Operation(
+        summary = "Find documents by descriptor",
+        description = "Retrieve documents that match the given descriptor name and value"
+    )
+    fun findDocumentsByDescriptor(@RequestParam name: String, @RequestParam value: String): Flux<Document> {
+        return documentService.findDocumentsByDescriptor(name, value)
     }
 }

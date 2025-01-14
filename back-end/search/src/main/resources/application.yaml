@@ -1,9 +1,23 @@
 spring:
   application:
     name: search
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          endpoints: http://localhost:9200
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: search
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
 logging:
   level:
     org:
       springframework:
-        web: DEBUG
-        boot: DEBUG
+        web: info
+        boot: info
