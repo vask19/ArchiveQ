@@ -1,4 +1,4 @@
-package com.pl.vkorol.search.model.item
+package com.pl.vkorol.search.model
 
 data class Descriptor(
     val name: String,

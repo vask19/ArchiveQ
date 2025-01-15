@@ -7,17 +7,17 @@ spring:
         reactive:
           endpoints: http://localhost:9200
   kafka:
-    bootstrap-servers: localhost:9092
     consumer:
+      bootstrap-servers: localhost:29091,localhost:29091,localhost:29091
       group-id: search
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      properties:
-        spring.json.trusted.packages: "*"
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 logging:
   level:
     org:
       springframework:
         web: info
         boot: info
+server:
+  port: 8890

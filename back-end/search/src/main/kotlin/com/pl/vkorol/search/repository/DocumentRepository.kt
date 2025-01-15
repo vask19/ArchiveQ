@@ -1,9 +1,9 @@
 package com.pl.vkorol.search.repository;
-import com.pl.vkorol.search.model.item.Document
+import com.pl.vkorol.search.model.index.DocumentIndex
 import org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository;
 import reactor.core.publisher.Flux
 
-interface DocumentRepository : ReactiveElasticsearchRepository<Document, String> {
+interface DocumentRepository : ReactiveElasticsearchRepository<DocumentIndex, String> {
 
-    fun findByName(name: String): Flux<Document>;
+    fun findByName(name: String): Flux<DocumentIndex>;
 }
