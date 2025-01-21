@@ -27,6 +27,7 @@
         <module>document</module>
         <module>mailer</module>
         <module>file-service</module>
+        <module>search</module>
     </modules>
 
     <dependencies>
