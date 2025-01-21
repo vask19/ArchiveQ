@@ -46,4 +46,13 @@ class DocumentController(private val documentService: DocumentService) {
     fun findDocumentsByDescriptor(@RequestParam name: String, @RequestParam value: String): Flux<DocumentIndex> {
         return documentService.findDocumentsByDescriptor(name, value)
     }
+
+    @GetMapping("/search/text")
+    @Operation(
+        summary = "Find documents by text",
+        description = "Retrieve documents that match the given text in fields like name, description, descriptors.name, or descriptors.value"
+    )
+    fun findDocumentsByText(@RequestParam text: String): Flux<DocumentIndex> {
+        return documentService.findDocumentsByText(text)
+    }
 }
