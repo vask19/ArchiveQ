@@ -1,12 +1,12 @@
 package com.pl.vkorol.document.controller;
 
-import com.pl.vkorol.document.kafka.KafkaMessage;
+import com.pl.vkorol.document.kafka.FtpFileMessage;
 import com.pl.vkorol.document.mapper.DocumentInstanceMapper;
 import com.pl.vkorol.document.model.SearchDocumentInstanceQuery;
 import com.pl.vkorol.document.model.entity.DocumentInstance;
 import com.pl.vkorol.document.model.payload.DocumentDto;
 import com.pl.vkorol.document.service.DocumentService;
-import com.pl.vkorol.document.service.FileService;
+import com.pl.vkorol.document.service.FileProducerService;
 import com.pl.vkorol.document.service.TransformService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +26,7 @@ public class DocumentController {
     private final DocumentService documentService;
     private final TransformService transformService;
     private final DocumentInstanceMapper documentInstanceMapper;
-    private final FileService fileService;
+    private final FileProducerService fileProducerService;
 
     @PostMapping(value = "/create")
     public ResponseEntity<?> createDocument(@RequestBody DocumentDto documentDto) {
@@ -65,12 +65,12 @@ public class DocumentController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        KafkaMessage kafkaMessage = KafkaMessage.builder()
+        FtpFileMessage kafkaMessage = FtpFileMessage.builder()
                 .content(bytes)
                 .fileName(file.getOriginalFilename())
                 .documentUuid(documentUuid)
                 .build();
-        fileService.sendFile(kafkaMessage);
+        fileProducerService.sendFile(kafkaMessage);
         return ResponseEntity.ok().build();
     }
 }

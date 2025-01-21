@@ -17,7 +17,7 @@ public class MessageConsumer {
     private final String topicName = "ftp";
     private final FtpService ftpService;
 
-    @KafkaListener(topics = topicName, groupId = "my-group-id")
+    @KafkaListener(topics = topicName, groupId = "ftp")
     public void listen(String message) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         FtpFile instance = mapper.readValue(message, FtpFile.class);

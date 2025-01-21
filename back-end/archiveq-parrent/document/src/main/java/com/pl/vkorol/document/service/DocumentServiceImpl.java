@@ -1,5 +1,6 @@
 package com.pl.vkorol.document.service;
 
+import com.pl.vkorol.document.mapper.DocumentInstanceMapper;
 import com.pl.vkorol.document.model.SearchDocumentInstanceQuery;
 import com.pl.vkorol.document.model.entity.ArchiveDescriptor;
 import com.pl.vkorol.document.model.entity.ArchiveDocument;
@@ -28,6 +29,8 @@ public class DocumentServiceImpl implements DocumentService {
     private final ArchiveDescriptorRepository archiveDescriptorRepository;
     private final DescriptorRepository descriptorRepository;
     private final CustomDocumentRepository documentRepository;
+    private final DocumentProducerService documentProducerService;
+    private final DocumentInstanceMapper documentInstanceMapper;
 
     @Override
     public void createArchiveDocument(ArchiveDocument archiveDocument) {
@@ -71,8 +74,8 @@ public class DocumentServiceImpl implements DocumentService {
     public void createDocument(DocumentInstance documentInstance) {
         documentRepository.save(documentInstance);
 
-        documentInstance.getDescriptors()
-                                .forEach(descriptorRepository::createDescriptor);
+        documentInstance.getDescriptors().forEach(descriptorRepository::createDescriptor);
+        documentProducerService.sendFile(documentInstanceMapper.toDocumentMessage(documentInstance));
     }
 
     @Override
