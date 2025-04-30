@@ -1,7 +1,7 @@
-package com.pl.vkorol.gatway.fasada;
+package com.pl.vkorol.gateway.fasada;
 
-import com.pl.vkorol.gatway.entity.Endpoint;
-import com.pl.vkorol.gatway.filter.RouteValidator;
+import com.pl.vkorol.gateway.entity.Endpoint;
+import com.pl.vkorol.gateway.filter.RouteValidator;
 import lombok.RequiredArgsConstructor;
 import com.pl.endpoint.entity.Response;
 import org.springframework.http.ResponseEntity;

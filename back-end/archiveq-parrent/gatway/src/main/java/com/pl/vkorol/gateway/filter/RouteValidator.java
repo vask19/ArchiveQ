@@ -1,7 +1,7 @@
-package com.pl.vkorol.gatway.filter;
+package com.pl.vkorol.gateway.filter;
 
 
-import com.pl.vkorol.gatway.entity.Endpoint;
+import com.pl.vkorol.gateway.entity.Endpoint;
 import com.pl.endpoint.entity.HttpMethod;
 import com.pl.endpoint.entity.Role;
 import org.springframework.http.server.reactive.ServerHttpRequest;
@@ -14,24 +14,25 @@ import java.util.function.Predicate;
 
 @Component
 public class RouteValidator {
-    public Set<Endpoint> openApiEndpoints = new HashSet<>(List.of(
-            new Endpoint("/auth/logout", HttpMethod.GET,Role.GUEST),
-            new Endpoint("/auth/register",HttpMethod.POST,Role.GUEST),
-            new Endpoint("/auth/login",HttpMethod.POST,Role.GUEST),
-            new Endpoint("/auth/validate",HttpMethod.GET,Role.GUEST),
-            new Endpoint("/auth/activate",HttpMethod.GET,Role.GUEST),
-            new Endpoint("/auth/authorize",HttpMethod.GET,Role.GUEST),
-            new Endpoint("/auth/reset-password",HttpMethod.PATCH,Role.GUEST),
-            new Endpoint("/auth/reset-password",HttpMethod.POST,Role.GUEST),
-            new Endpoint("/api/v1/gateway",HttpMethod.POST,Role.GUEST),
-            new Endpoint("/api/v1/auto-login",HttpMethod.GET,Role.GUEST),
-            new Endpoint("/api/v1/logged-in",HttpMethod.GET,Role.GUEST)
-            )
-    );
-    private Set<Endpoint> adminEndpoints = new HashSet<>();
 
-    public void addEndpoints(List<Endpoint> endpointList){
-        for (Endpoint endpoint: endpointList){
+    public Set<Endpoint> openApiEndpoints = new HashSet<>(List.of(
+            new Endpoint("/auth/logout", HttpMethod.GET, Role.GUEST),
+            new Endpoint("/auth/register", HttpMethod.POST, Role.GUEST),
+            new Endpoint("/auth/login", HttpMethod.POST, Role.GUEST),
+            new Endpoint("/auth/validate", HttpMethod.GET, Role.GUEST),
+            new Endpoint("/auth/activate", HttpMethod.GET, Role.GUEST),
+            new Endpoint("/auth/authorize", HttpMethod.GET, Role.GUEST),
+            new Endpoint("/auth/reset-password", HttpMethod.PATCH, Role.GUEST),
+            new Endpoint("/auth/reset-password", HttpMethod.POST, Role.GUEST),
+            new Endpoint("/api/v1/gateway", HttpMethod.POST, Role.GUEST),
+            new Endpoint("/api/v1/auto-login", HttpMethod.GET, Role.GUEST),
+            new Endpoint("/api/v1/logged-in", HttpMethod.GET, Role.GUEST)
+    ));
+
+    private final Set<Endpoint> adminEndpoints = new HashSet<>();
+
+    public void addEndpoints(List<Endpoint> endpointList) {
+        for (Endpoint endpoint : endpointList) {
             if (endpoint.getRole().name().equals(Role.ADMIN.name())) {
                 adminEndpoints.add(endpoint);
             }

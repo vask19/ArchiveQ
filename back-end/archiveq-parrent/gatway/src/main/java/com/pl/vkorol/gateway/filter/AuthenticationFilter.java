@@ -1,7 +1,7 @@
-package com.pl.vkorol.gatway.filter;
+package com.pl.vkorol.gateway.filter;
 
-import com.pl.vkorol.gatway.config.Carousel;
-import com.pl.vkorol.gatway.utils.JwtUtil;
+import com.pl.vkorol.gateway.config.Carousel;
+import com.pl.vkorol.gateway.utils.JwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
@@ -86,18 +86,18 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                         if (response.getStatusCode() == HttpStatus.OK){
                             List<String> cookiesList = response.getHeaders().get(HttpHeaders.SET_COOKIE);
                             if (cookiesList != null) {
-                                    List<java.net.HttpCookie> httpCookie = java.net.HttpCookie.parse(cookiesList.get(0));
-                                    for (java.net.HttpCookie cookie: httpCookie){
-                                        exchange.getResponse().getCookies().add(cookie.getName(),
-                                                ResponseCookie.from(cookie.getName(),cookie.getValue())
-                                                        .domain(cookie.getDomain())
-                                                        .path(cookie.getPath())
-                                                        .maxAge(cookie.getMaxAge())
-                                                        .secure(cookie.getSecure())
-                                                        .httpOnly(cookie.isHttpOnly())
-                                                        .build());
-                                    }
+                                List<java.net.HttpCookie> httpCookie = java.net.HttpCookie.parse(cookiesList.get(0));
+                                for (java.net.HttpCookie cookie: httpCookie){
+                                    exchange.getResponse().getCookies().add(cookie.getName(),
+                                            ResponseCookie.from(cookie.getName(),cookie.getValue())
+                                                    .domain(cookie.getDomain())
+                                                    .path(cookie.getPath())
+                                                    .maxAge(cookie.getMaxAge())
+                                                    .secure(cookie.getSecure())
+                                                    .httpOnly(cookie.isHttpOnly())
+                                                    .build());
                                 }
+                            }
                             log.info("Successful login");
                         }
                     }
@@ -117,8 +117,6 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
             return chain.filter(exchange);
         });
     }
-
-
     public static class Config {
 
     }

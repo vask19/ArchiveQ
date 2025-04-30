@@ -1,4 +1,4 @@
-package com.pl.vkorol.gatway.config;
+package com.pl.vkorol.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

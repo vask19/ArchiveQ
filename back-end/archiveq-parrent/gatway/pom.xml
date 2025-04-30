@@ -7,10 +7,10 @@
         <artifactId>archiveq-parrent</artifactId>
         <version>0.0.1</version>
     </parent>
-    <artifactId>gatway</artifactId>
+    <artifactId>gateway</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>gatway</name>
-    <description>gatway</description>
+    <name>gateway</name>
+    <description>gateway</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2022.0.3</spring-cloud.version>
@@ -81,6 +81,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>gateway</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

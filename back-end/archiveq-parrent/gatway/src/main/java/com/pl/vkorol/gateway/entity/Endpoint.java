@@ -1,4 +1,4 @@
-package com.pl.vkorol.gatway.entity;
+package com.pl.vkorol.gateway.entity;
 
 import com.pl.endpoint.entity.HttpMethod;
 import com.pl.endpoint.entity.Role;

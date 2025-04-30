@@ -1,10 +1,10 @@
-package com.pl.vkorol.gatway;
+package com.pl.vkorol.gateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GatwayApplicationTests {
+class GatewayApplicationTests {
 
     @Test
     void contextLoads() {
